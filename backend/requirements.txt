@@ -1,0 +1,7 @@
+fastapi[all]
+uvicorn[standard]
+SQLAlchemy
+beautifulsoup4
+selenium
+Levenshtein
+pyhomebroker
