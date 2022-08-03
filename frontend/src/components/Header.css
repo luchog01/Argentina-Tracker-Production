@@ -1,0 +1,21 @@
+.header {
+        background-color: #292929;
+        width: 100vw;
+        height: 6vh;
+        position: fixed;
+        display: flex;
+        align-items: center;
+}
+
+.title {
+        font-size: 1.5rem;
+}
+
+.bars {
+        font-size: 1.5rem;
+        justify-self: flex-start;
+        cursor: pointer;
+        margin-left: 2rem;
+        margin-right: 2rem;
+        padding: .5rem;
+}

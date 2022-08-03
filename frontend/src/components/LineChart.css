@@ -1,0 +1,11 @@
+.line-chart {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-self: center;
+        align-self: center;
+        width: 90vw;
+        max-width: 85vw;
+        position: relative;
+        top: -2vh;
+}
