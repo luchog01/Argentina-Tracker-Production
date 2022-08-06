@@ -14,7 +14,8 @@ app = FastAPI()
 
 origins = [
     "http://localhost:3000",
-    "http://52.200.228.178:3000"
+    "http://52.200.228.178:3000",
+    "http://fcitracker.online"
 ]
 
 app.add_middleware(
