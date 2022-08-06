@@ -21,13 +21,13 @@ function App() {
     const [funds, setFunds] = useState({})
 
     const fetchTickers = async () => {
-        const res = await fetch('http://localhost:8000/tickers/')
+        const res = await fetch('http://52.200.228.178:8000/tickers/')
         const data = await res.json()
         return data
     }
 
     const fetchTicker = async (id) => {
-        const res = await fetch(`http://localhost:8000/tickers/${id}`)
+        const res = await fetch(`http://52.200.228.178:8000/tickers/${id}`)
         const data = await res.json()
         return data
     }
@@ -61,7 +61,7 @@ function App() {
     const fetchFunds = async (element) => {
         if (element.length > 0) {
             const date = selectedTicker.funds.total.dates[element[0].index]
-            const res = await fetch(`http://localhost:8000/point/${selectedId}/${date}`)
+            const res = await fetch(`http://52.200.228.178:8000/point/${selectedId}/${date}`)
             const data = await res.json()
             setFunds(data)
         }
