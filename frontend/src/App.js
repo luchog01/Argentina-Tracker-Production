@@ -3,6 +3,7 @@ import './App.css'
 import Header from './components/Header'
 import Tickers from './components/Tickers';
 import LineChart from './components/LineChart';
+import Funds from './components/Funds';
 
 function App() {
     const [tickers, setTickers] = useState({})
@@ -17,6 +18,7 @@ function App() {
         "type": ""
     })
     const [tickersMenu, setTickersMenu] = useState(false)
+    const [funds, setFunds] = useState({})
 
     const fetchTickers = async () => {
         const res = await fetch('http://localhost:8000/tickers/')
@@ -49,11 +51,20 @@ function App() {
         setSelectedId(id)
         const tickerSelected = await fetchTicker(id)
         setSelectedTicker(tickerSelected)
-        console.log(tickerSelected)
+        setFunds({})
     }
 
     const toggleMenu = () => {
         setTickersMenu(!tickersMenu)
+    }
+
+    const fetchFunds = async (element) => {
+        if (element.length > 0) {
+            const date = selectedTicker.funds.total.dates[element[0].index]
+            const res = await fetch(`http://localhost:8000/point/${selectedId}/${date}`)
+            const data = await res.json()
+            setFunds(data)
+        }
     }
 
     return (
@@ -61,7 +72,8 @@ function App() {
             <Header title='FCI Tracker' toggleMenu={toggleMenu}/>
             <div className='container'>
                 <Tickers tickers={tickers} selectTicker={selectTicker} selected={selectedId} tickersMenu={tickersMenu} toggleMenu={toggleMenu}/>
-                <LineChart ticker={selectedTicker.funds.total} name={selectedTicker.name} />
+                <LineChart ticker={selectedTicker.funds.total} name={selectedTicker.name} onClick={fetchFunds} />
+                {Object.keys(funds).length === 0 ? <></> : <Funds date={funds.date} price={funds.price} funds={funds.funds}/>}
             </div>
         </>
     );

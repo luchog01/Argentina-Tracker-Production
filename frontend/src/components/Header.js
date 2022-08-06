@@ -8,7 +8,10 @@ const Header = ({ title, toggleMenu }) => {
     return (
         <div className='header'>
             <FontAwesomeIcon icon={faBars} className='bars' onClick={() => toggleMenu()}/>
-            <h1 className='title'>{title}</h1>
+            <div className='title-container'>
+                <img alt='' src={process.env.PUBLIC_URL+"favicon.ico"} className='icon'/>
+                <h1 className='title'>{title}</h1>
+            </div>
         </div>
     )
 }

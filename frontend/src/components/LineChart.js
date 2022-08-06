@@ -6,30 +6,37 @@ import './LineChart.css'
 
 //Chart.register(LineController, LineElement, PointElement, LinearScale, Title, CategoryScale);
 
-const LineChart = ({ticker, name}) => {
+const LineChart = ({ ticker, name, onClick }) => {
+
+    const data = {
+        labels: ticker.dates,
+        datasets: [{
+            label: name,
+            data: ticker.qty,
+            borderColor: 'rgba(0, 98, 255, 1)',
+            borderWidth: 1,
+            pointBackgroundColor: 'rgba(0, 98, 255, 1)',
+            pointRadius: 6,
+            pointHoverRadius: 8,
+            pointHoverBackgroundColor: 'rgba(0, 98, 255, 1)',
+            fill: false,
+            tension: 0
+        }]
+    }
+
     return (
         <div className='line-chart'>
             <Line
-                data={{
-                    labels: ticker.dates,
-                    datasets: [{
-                        label: name,
-                        data: ticker.qty,
-                        borderColor: '#00ab14',
-                        borderWidth: 1,
-                        pointBackgroundColor: 'rgba(0, 191, 29, 0.3)',
-                        pointRadius: 4.5,
-                        pointHoverRadius: 6,
-                        pointHoverBackgroundColor: 'rgba(0, 191, 29, 1)',
-                        fill: false,
-                        tension: 0
-                    }]
-                }}
+                data={data}
                 options={{
                     scales: {
                         y: {
                             ticks: {
-                                color: '#ebebeb'
+                                color: '#000000',
+                                font: {
+                                    size: 14,
+                                    weight: 'bolder'
+                                }
                             },
                             grid: {
                                 color: '#404040'
@@ -38,7 +45,11 @@ const LineChart = ({ticker, name}) => {
                         },
                         x: {
                             ticks: {
-                                color: '#ebebeb'
+                                color: '#000000',
+                                font: {
+                                    size: 14,
+                                    weight: 'bolder'
+                                }
                             },
                             grid: {
                                 color: '#404040'
@@ -49,7 +60,7 @@ const LineChart = ({ticker, name}) => {
                         title: {
                             display: true,
                             text: name,
-                            color: '#ebebeb',
+                            color: '#000000',
                             font: {
                                 size: 18
                             }
@@ -84,7 +95,8 @@ const LineChart = ({ticker, name}) => {
                     hover: {
                         mode: 'nearest',
                         intersect: true
-                    }
+                    },
+                    onClick: (evt, element) => onClick(element)
                 }}
             />
         </div>

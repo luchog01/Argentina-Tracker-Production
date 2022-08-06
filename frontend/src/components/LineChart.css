@@ -4,8 +4,9 @@
         align-items: center;
         justify-self: center;
         align-self: center;
-        width: 90vw;
-        max-width: 85vw;
+        width: 80vw;
+        max-width: 80vw;
         position: relative;
         top: -2vh;
+        transition: all 0.2s ease-in-out;
 }

@@ -1,0 +1,11 @@
+.funds {
+        color: black;
+        max-width: 14vw;
+        max-height: 80vh;
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+}
+.fund {
+        margin-bottom: 6px;
+}

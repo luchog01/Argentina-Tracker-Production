@@ -1,5 +1,5 @@
 .tickers {
-        background-color: #242424;
+        background-color: #005aa3;
         width: 15rem;
         min-width: 15rem;
         height: 94vh;
@@ -9,7 +9,6 @@
         align-items: center;
         justify-self: flex-start;
         align-self: flex-start;
-        border-right: 1px solid #404040;
         overflow-y: auto;
         position: fixed;
         left: -15rem;
@@ -25,21 +24,21 @@
         width: 93%;
         height: 2.8rem;
         min-height: 2.8rem;
-        background-color: #404040;
+        background-color: #ebebeb;
         padding: 10px;
         font-size: large;
         border: 0;
         margin-top: .7rem;
         margin-bottom: .7rem;
-        color: #ebebeb;
+        color: #1c1c1c;
 }
 
 .search:focus {
-        outline: #7c7c7c solid 1px;
+        outline: #ebebeb solid 1px;
 }
 
 .search::placeholder {
-        color: #b4b4b4;
+        color: #363636;
 }
 
 .ticker {
@@ -53,23 +52,23 @@
 }
 
 .ticker:hover {
-        background-color: #2e2e2e;
+        background-color: #005ca7;
         filter: brightness(110%);
         cursor: pointer;
 }
 
 .ticker:active {
-        background-color: #494949;
+        background-color: #0078da;
 }
 
 .selected {
-        background-color: #383838;
+        background-color: #006ec9;
 }
 
 .selected:hover {
-        background-color: #383838;
+        background-color: #006ac0;
 }
 
 .selected:active {
-        background-color: #494949;
+        background-color: #0078da;
 }
