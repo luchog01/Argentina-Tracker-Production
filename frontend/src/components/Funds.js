@@ -9,7 +9,7 @@ const Funds = () => {
 
     useEffect(() => {
         const fetchFunds = async () => {
-            const res = await fetch(`http://52.200.228.178/point/${id}/${date}`)
+            const res = await fetch(`http://52.200.228.178:8000/point/${id}/${date}`)
             const data = await res.json()
             setTotalFunds(data)
         }

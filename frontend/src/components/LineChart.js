@@ -18,7 +18,7 @@ const LineChart = ({ selectedId }) => {
 
     useEffect(() => {
         const fetchTicker = async (id) => {
-            const res = await fetch(`http://52.200.228.178/tickers/${id}`)
+            const res = await fetch(`http://52.200.228.178:8000/tickers/${id}`)
             const data = await res.json()
             setTicker(data)
         }

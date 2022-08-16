@@ -9,7 +9,7 @@ const Tickers = ({ selectTicker, selected, tickersMenu, toggleMenu }) => {
 
     useEffect(() => {
         const fetchTickers = async () => {
-            const res = await fetch('http://52.200.228.178/tickers/')
+            const res = await fetch('http://52.200.228.178:8000/tickers/')
             const data = await res.json()
             setTickers(data)
         }
