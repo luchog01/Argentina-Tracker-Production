@@ -11,6 +11,7 @@
         align-self: flex-start;
         overflow-y: auto;
         position: fixed;
+        top: 6vh;
         left: -15rem;
         transition: all 0.2s ease-in-out;
         z-index: 1;

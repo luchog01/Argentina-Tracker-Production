@@ -65,17 +65,21 @@ def read_user(ticker_id: int, db: _orm.Session = Depends(_services.get_db)):
 @app.get("/point/{ticker_id}/{date}", response_model=Dict)
 def point(ticker_id: int, date: str, db: _orm.Session = Depends(_services.get_db)):
     db_ticker = read_user(ticker_id=ticker_id, db=db)
-    resp = {"date": date, "price": 0.0, "funds": {}}
+    resp = {"date": date, "price": 0.0, "name": db_ticker.name, "total": 0.0, "avg": 0.0, "funds": {}}
     for fund in db_ticker.funds.keys():
-        if fund != "total":
-            try:
-                ind: int = db_ticker.funds[fund]["dates"].index(date)
-                resp["funds"][fund] = round(db_ticker.funds[fund]["qty"][ind], 2)
-                if resp["price"] == 0.0:
-                    resp["price"] =  round(db_ticker.funds[fund]["prices"][ind], 2)
-                
-            except:
-                pass
+        try:
+            ind: int = db_ticker.funds[fund]["dates"].index(date)
+            resp["funds"][fund] = round(db_ticker.funds[fund]["qty"][ind], 2)
+            if resp["price"] == 0.0:
+                resp["price"] =  round(db_ticker.funds[fund]["prices"][ind], 2)
+            
+        except:
+            pass
+
+    resp["total"] = resp["funds"]["total"]
+    resp["avg"] = resp["funds"]["avg"]
+    resp["funds"].pop('total', None)
+    resp["funds"].pop('avg', None)
 
     return resp
 

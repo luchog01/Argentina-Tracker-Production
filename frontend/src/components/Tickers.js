@@ -1,10 +1,21 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Ticker from './Ticker'
 import './Tickers.css'
 
-const Tickers = ({ tickers, selectTicker, selected, tickersMenu, toggleMenu }) => {
+const Tickers = ({ selectTicker, selected, tickersMenu, toggleMenu }) => {
+    const [tickers, setTickers] = useState({})
     const [searchTerm, setSearchTerm] = useState('')
+
+    useEffect(() => {
+        const fetchTickers = async () => {
+            const res = await fetch('http://52.200.228.178/tickers/')
+            const data = await res.json()
+            setTickers(data)
+        }
+
+        fetchTickers()
+    }, [])
 
     return (
         <div className={tickersMenu ? 'tickers tickers-menu-active' : 'tickers'}>

@@ -1,19 +1,46 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import './Funds.css'
 
-const Funds = ({ date, price, funds }) => {
+const Funds = () => {
+    const { id } = useParams()
+    const { date } = useParams()
+    const [totalFunds, setTotalFunds] = useState({})
+
+    useEffect(() => {
+        const fetchFunds = async () => {
+            const res = await fetch(`http://52.200.228.178/point/${id}/${date}`)
+            const data = await res.json()
+            setTotalFunds(data)
+        }
+
+        fetchFunds()
+    }, [id, date])
+
     return (
-        <div className='funds'>
-            <h2>{date}</h2>
-            <h3>Precio: {price}</h3>
-            <h3>Fondos:</h3>
-            {Object.keys(funds).map((fund, index) => (
-                <div key={fund} className='fund'>
-                    <h3>{fund}</h3>
-                    <h3>Cantidad: {funds[fund]}</h3>
+        <>
+            {Object.keys(totalFunds).length > 0 &&
+                <div className='funds-container'>
+                    <div className='data-container'>
+                        <h2>{totalFunds.name}</h2>
+                        <h2>Fecha: {date}</h2>
+                        <h2>Precio: {totalFunds.price}</h2>
+                        <h2>Total: {totalFunds.total}</h2>
+                        <h2>Promedio: {totalFunds.avg}</h2>
+                    </div>
+                    <div className='funds'>
+                        <h4 className='fund'>Fondo</h4>
+                        <h4 className='fund'>Cantidad</h4>
+                        {Object.keys(totalFunds.funds).map((fund, index) => (
+                            <React.Fragment key={fund}>
+                                <h4 className='fund'>{fund}</h4>
+                                <h4 className='fund'>{totalFunds.funds[fund]}</h4>
+                            </React.Fragment>
+                        ))}
+                    </div>
                 </div>
-            ))}
-        </div>
+            }
+        </>
     )
 }
 

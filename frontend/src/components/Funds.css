@@ -1,11 +1,73 @@
-.funds {
+.funds-container {
         color: black;
-        max-width: 14vw;
-        max-height: 80vh;
+        width: 100vw;
         display: flex;
         flex-direction: column;
-        overflow: auto;
+        position: relative;
+        top: 6vh;
+        padding-bottom: 4rem;
 }
+
+.data-container {
+        justify-self: center;
+        align-self: center;
+        display: grid;
+        grid-template-areas: 
+        'title title'
+        'date price'
+        'total avg';
+        width: 75vw;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+}
+
+.data-container h2:nth-child(1) {
+        grid-area: title;
+        font-size: xx-large;
+}
+
+.data-container h2:nth-child(2) {
+        grid-area: date;
+}
+
+.data-container h2:nth-child(3) {
+        grid-area: price;
+}
+
+.data-container h2:nth-child(4) {
+        grid-area: total;
+}
+
+.data-container h2:nth-child(5) {
+        grid-area: avg;
+}
+
+.funds-container h2 {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+}
+
+.funds {
+        justify-self: center;
+        align-self: center;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 75vw;
+        justify-content: center;
+        align-content: center;
+}
+
 .fund {
-        margin-bottom: 6px;
+        padding: .5rem;
+        font-size: medium;
+        border: 1px solid #333333;
+        margin-bottom: 0 - 1px;
+        font-size: 1.2rem;
+        font-weight: normal;
+}
+
+.funds h4:nth-of-type(4n+1), h4:nth-of-type(4n+2) {
+        background-color: rgb(202, 202, 202);
 }

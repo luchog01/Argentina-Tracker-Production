@@ -1,0 +1,455 @@
+[<tr class="titleTable">
+<td colspan="2" style="text-align:center">Denominación</td>
+<td class="borde" style="text-align:center">% Patrimonio<br/>Neto</td>
+<td style="text-align:center">% Patrimonio<br/>Neto (2)</td>
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' --><td align="left" class="flechaTabla ng-binding ng-scope" colspan="3" ng-if="row.tipo == 'subtitulo'">Disponibilidades</td><!-- end ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' --><td class="ng-scope" ng-if="row.tipo == 'subtitulo'"><strong class="ng-binding">0.41</strong></td><!-- end ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">Cta Cte $ ICBC</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">0.02</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">Cta Cte U$S ICBC</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">0.39</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">Cta Cte $ Rem Bco Supervi</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">0.00</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">Cta Cte U$S Bank Amer NY</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">0.00</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' --><td align="left" class="flechaTabla ng-binding ng-scope" colspan="3" ng-if="row.tipo == 'subtitulo'">Participacion Accionaria Argentina</td><!-- end ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' --><td class="ng-scope" ng-if="row.tipo == 'subtitulo'"><strong class="ng-binding">100.29</strong></td><!-- end ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">Aluar</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">3.53</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">Banco Hipotecario</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">0.30</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">Banco Macro Bansud - B</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">4.71</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">Capex</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">4.70</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">Central Costanera - B</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">0.26</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">Central Puerto</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">5.98</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">Comercial del Plata</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">4.25</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">Dist Gas Cuyana - B</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">1.43</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">Edenor</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">2.03</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">Emdersa</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">0.07</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">Ternium - A</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">12.45</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">BBVA Argentina</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">2.43</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">Gas Natural Ban</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">0.16</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">Grupo Fciero Galicia - B</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">7.75</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">Holcim Argentina</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">0.34</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">Molinos Rio de la Plata</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">0.71</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">Pampa Energia</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">5.32</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">Telecom Argentina - B</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">3.99</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">Transp Gas del Sur - B</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">4.83</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">YPF - D</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">4.59</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">Inversora Juramento</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">0.29</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">Edesal Holding S.A.</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">0.21</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">Edesa Holding S.A.</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">0.30</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">Mirgor</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">4.67</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">San Miguel</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">0.94</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">Grupo Supervielle CB</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">1.63</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">Transp Gas del Norte C</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">1.05</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">Agrometal</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">2.42</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">Consultatio</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">0.67</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">Autopistas del Sol - D</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">1.09</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">Molinos Agro Clase B</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">2.49</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">Loma Negra</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">5.32</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">Dycasa</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">0.17</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">BYMA</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">6.77</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">Boldt</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">0.11</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">Banco de Valores</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">2.33</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' --><td align="left" class="flechaTabla ng-binding ng-scope" colspan="3" ng-if="row.tipo == 'subtitulo'">Titulos de Deuda en Dolar Estadounidense</td><!-- end ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' --><td class="ng-scope" ng-if="row.tipo == 'subtitulo'"><strong class="ng-binding">0.30</strong></td><!-- end ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">Bonos Rep Argentina GD30</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">0.19</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">Bonos Rep Argentina GD35</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">0.11</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' --><td align="left" class="flechaTabla ng-binding ng-scope" colspan="3" ng-if="row.tipo == 'subtitulo'">Vehiculos Inversion Colectiva Argentina</td><!-- end ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' --><td class="ng-scope" ng-if="row.tipo == 'subtitulo'"><strong class="ng-binding">2.36</strong></td><!-- end ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'" style="text-align:left">FCI Premier Renta CP $ CA</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-binding ng-scope" ng-if="row.tipo == 'data'">2.36</td><!-- end ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' --><td class="ng-scope" ng-if="row.tipo == 'data'"> </td><!-- end ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' --><td align="left" class="flechaTabla ng-binding ng-scope" colspan="3" ng-if="row.tipo == 'subtitulo'">Otros Activos</td><!-- end ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' --><td class="ng-scope" ng-if="row.tipo == 'subtitulo'"><strong class="ng-binding">0.00</strong></td><!-- end ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' --><td align="left" class="flechaTabla ng-binding ng-scope" colspan="3" ng-if="row.tipo == 'subtitulo'">Pasivos</td><!-- end ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' --><td class="ng-scope" ng-if="row.tipo == 'subtitulo'"><strong class="ng-binding">-3.37</strong></td><!-- end ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' -->
+</tr>, <tr class="ng-scope" ng-repeat="row in dataCartera.filas">
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'subtitulo' -->
+<!-- ngIf: row.tipo == 'pie' --><td align="left" class="flechaTabla ng-binding ng-scope" colspan="3" ng-if="row.tipo == 'pie'">Total del Patrimonio Neto (Peso Argentina)</td><!-- end ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'pie' --><td class="ng-scope" ng-if="row.tipo == 'pie'"><strong class="ng-binding">629,596,789.43</strong></td><!-- end ngIf: row.tipo == 'pie' -->
+<!-- ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' -->
+<!-- ngIf: row.tipo == 'data' -->
+</tr>]
