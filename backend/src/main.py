@@ -101,7 +101,10 @@ def compare(ticker_id: int, date1: str, date2: str, db: _orm.Session = Depends(_
     for key in resp2["funds"].keys():
         if key in resp1["funds"].keys():
             dif_qty: float = round(resp2["funds"][key] - resp1["funds"][key],2)
-            dif_per: float = round((dif_qty*100)/resp1["funds"][key],2)
+            try:
+                dif_per: float = round((dif_qty*100)/resp1["funds"][key],2)
+            except:
+                dif_per: float = 0
             dif["table"].append([key, resp1["funds"][key], resp2["funds"][key], dif_qty, dif_per])
         
         else:
