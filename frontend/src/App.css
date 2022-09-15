@@ -1,10 +1,76 @@
 .container {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        justify-content: flex-start;
         align-items: center;
-        width: 100vw;
-        height: 94vh;
+        width: 100%;
+        height: fit-content;
         position: relative;
         top: 6vh;
         color: black;
+}
+
+.compare-selector-container {
+        align-self: flex-start;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: flex-start;
+        height: 26rem;
+        margin-left: 10vw;
+        width: 45rem;
+        max-width: 65vw;
+}
+
+.dates-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-bottom: 3rem;
+}
+
+.compare-btn {
+        background-color: #006de9;
+        color: #ffffff;
+        width: 13rem;
+        height: 3.4rem;
+        padding: .8rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: larger;
+        font-weight: normal;
+        position: relative;
+}
+
+.compare-btn:hover {
+        background-color: #1481ff;
+        cursor: pointer;
+        transition: 200ms;
+}
+
+button:focus {
+        outline: 0;
+}
+
+.empty-date::before {
+        content: "Elige dos fechas.";
+        color: red;
+        font-size: 16px;
+        position: absolute;
+        display: inline-block;
+        bottom: 110%;
+        right: 20%;
+        width: 100%;
+}
+
+.equal-dates::before {
+        content: "Las fechas deben ser distintas.";
+        color: red;
+        font-size: 16px;
+        position: absolute;
+        display: inline-block;
+        bottom: 110%;
+        left: -21%;
+        width: 150%;
 }

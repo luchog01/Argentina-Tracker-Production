@@ -1,4 +1,4 @@
-.funds-container {
+.compare-container {
         color: black;
         width: 100vw;
         min-height: 74.6vh;
@@ -9,62 +9,42 @@
         padding-bottom: 4rem;
 }
 
-.funds-initial-data {
+.compare-initial-data {
         justify-self: center;
         align-self: center;
-        display: grid;
-        grid-template-areas: 
-        'title title'
-        'date price'
-        'total avg';
+        display: flex;
+        flex-direction: column;
         width: 80vw;
         padding-top: 1.5rem;
         padding-bottom: 1.5rem;
 }
 
-.funds-initial-data h2:nth-child(1) {
-        grid-area: title;
-        font-size: xx-large;
-}
-
-.funds-initial-data h2:nth-child(2) {
-        grid-area: date;
-}
-
-.funds-initial-data h2:nth-child(3) {
-        grid-area: price;
-}
-
-.funds-initial-data h2:nth-child(4) {
-        grid-area: total;
-}
-
-.funds-initial-data h2:nth-child(5) {
-        grid-area: avg;
-}
-
-.funds-initial-data h2 {
+.compare-initial-data h2 {
         margin-top: 1rem;
         margin-bottom: 1rem;
         font-size: 1.5rem;
         font-weight: 600;
 }
 
-.funds-grid {
+.compare-initial-data h2:nth-child(1) {
+        font-size: xx-large;
+}
+
+.compare-grid {
         justify-self: center;
         align-self: center;
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(5, 1fr);
         width: 80vw;
         justify-content: center;
         align-content: center;
 }
 
-.funds-grid h4:nth-of-type(4n+1), h4:nth-of-type(4n+2) {
+.compare-grid h5:nth-of-type(10n+1), h5:nth-of-type(10n+2), h5:nth-of-type(10n+3), h5:nth-of-type(10n+4), h5:nth-of-type(10n+5) {
         background-color: rgb(202, 202, 202);
 }
 
-.fund {
+.compare-data {
         padding: .5rem;
         font-size: medium;
         border: 1px solid #333333;

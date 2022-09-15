@@ -21,14 +21,14 @@ const Funds = () => {
         <>
             {Object.keys(totalFunds).length > 0 &&
                 <div className='funds-container'>
-                    <div className='data-container'>
+                    <div className='funds-initial-data'>
                         <h2>{totalFunds.name}</h2>
                         <h2>Fecha: {date}</h2>
                         <h2>Precio: {totalFunds.price}</h2>
                         <h2>Total: {totalFunds.total}</h2>
                         <h2>Promedio: {totalFunds.avg}</h2>
                     </div>
-                    <div className='funds'>
+                    <div className='funds-grid'>
                         <h4 className='fund'>Fondo</h4>
                         <h4 className='fund'>Cantidad</h4>
                         {Object.keys(totalFunds.funds).map((fund, index) => (

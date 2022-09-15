@@ -1,7 +1,6 @@
 import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import "./Header.css"
-import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 
@@ -18,10 +17,6 @@ const Header = ({ toggleMenu }) => {
             </div>
         </div>
     )
-}
-
-Header.propTypes = {
-    title: PropTypes.string.isRequired
 }
 
 export default Header

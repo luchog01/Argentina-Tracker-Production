@@ -1,0 +1,48 @@
+.dates-menu-container {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        margin-top: 2rem;
+        margin-right: 2rem;
+}
+
+.menu-trigger {
+        width: 13rem;
+        padding: .8rem;
+        display: flex;
+        justify-content: space-between;
+        background-color: #ffffff;
+        color: #1c1c1c;
+        border: 1px solid #333333;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 1rem;
+}
+
+.arrow {
+        color: #1c1c1c;
+}
+
+.dates-menu {
+        position: relative;
+}
+
+.dates-menu-content {
+        position: absolute;
+        max-height: 11.2rem;
+        overflow-x: hidden;
+        z-index: 1;
+}
+
+.dates-menu-item {
+        width: 12rem;
+        padding: .8rem;
+        background-color: #ffffff;
+        border-top: 1px solid rgba(0, 0, 0, .1);
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+}
+
+.dates-menu-item:hover {
+        background-color: #e2e2e2;
+}

@@ -54,7 +54,7 @@ def read_users(
 
 
 @app.get("/tickers/{ticker_id}", response_model=_schemas.Ticker)
-def read_user(ticker_id: int, db: _orm.Session = Depends(_services.get_db)):
+def tickers(ticker_id: int, db: _orm.Session = Depends(_services.get_db)):
     db_ticker = _services.get_ticker(db=db, id=ticker_id)
     if db_ticker is None:
         raise HTTPException(
@@ -64,7 +64,7 @@ def read_user(ticker_id: int, db: _orm.Session = Depends(_services.get_db)):
 
 @app.get("/point/{ticker_id}/{date}", response_model=Dict)
 def point(ticker_id: int, date: str, db: _orm.Session = Depends(_services.get_db)):
-    db_ticker = read_user(ticker_id=ticker_id, db=db)
+    db_ticker = tickers(ticker_id=ticker_id, db=db)
     resp = {"date": date, "price": 0.0, "name": db_ticker.name, "total": 0.0, "avg": 0.0, "funds": {}}
     for fund in db_ticker.funds.keys():
         try:
@@ -82,6 +82,33 @@ def point(ticker_id: int, date: str, db: _orm.Session = Depends(_services.get_db
     resp["funds"].pop('avg', None)
 
     return resp
+
+@app.get("/compare/{ticker_id}/{date1}/{date2}", response_model=Dict)
+def compare(ticker_id: int, date1: str, date2: str, db: _orm.Session = Depends(_services.get_db)):
+    resp1: dict = point(ticker_id=ticker_id, date=date1,db=db)
+    resp2: dict = point(ticker_id=ticker_id, date=date2,db=db)
+
+    dif = {
+        "date":date1 + " - " + date2,
+        "price":resp2["price"],
+        "name":resp2["name"],
+        "table":[]
+        }
+    
+    dif["table"].append(["Fund", date1, date2, "Qty Delta", "% Delta"])
+    dif["table"].append(["total", resp1["total"], resp2["total"], round(resp2["total"]-resp1["total"],2), round(((resp2["total"]-resp1["total"]) * 100)/ resp1["total"], 2)])
+    dif["table"].append(["avg", resp1["avg"], resp2["avg"], round(resp2["avg"]-resp1["avg"], 2), round(((resp2["avg"]-resp1["avg"]) * 100)/ resp1["avg"], 2)])
+    for key in resp2["funds"].keys():
+        if key in resp1["funds"].keys():
+            dif_qty: float = round(resp2["funds"][key] - resp1["funds"][key],2)
+            dif_per: float = round((dif_qty*100)/resp1["funds"][key],2)
+            dif["table"].append([key, resp1["funds"][key], resp2["funds"][key], dif_qty, dif_per])
+        
+        else:
+            dif["table"].append([key, 0, resp2["funds"][key], resp2["funds"][key], 100])
+    
+    return dif
+
 
 @app.post("/engineUpdate/{password}/{today}")
 async def update_engine(password: str,today: str, request: Request, db: _orm.Session = Depends(_services.get_db)):

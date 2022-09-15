@@ -6,17 +6,45 @@ import Tickers from './components/Tickers';
 import LineChart from './components/LineChart';
 import Funds from './components/Funds';
 import Footer from './components/Footer';
+import DatesMenu from './components/DatesMenu';
+import Compare from './components/Compare';
 
 function App() {
     const [selectedId, setSelectedId] = useState('1')
     const [tickersMenu, setTickersMenu] = useState(false)
+    const [dateList, setDateList] = useState([])
+    const [date1, setDate1] = useState('')
+    const [date2, setDate2] = useState('')
+    const [emptyDate, setEmptyDate] = useState(false)
+    const [equalDates, setEqualDates] = useState(false)
 
     const toggleMenu = () => {
         setTickersMenu(!tickersMenu)
     }
 
-    const selectTicker = async (id) => {
+    const selectTicker = (id) => {
         setSelectedId(id)
+    }
+
+    const passDates = (dates) => {
+        setDateList(dates)
+    }
+
+    const setDates = (date, dateId) => {
+        if (dateId === 1) setDate1(date)
+        else setDate2(date)
+    }
+
+    const openCompare = async (date1, date2) => {
+        if (date1 === '' || date2 === '') {
+            setEmptyDate(true)
+            return
+        } else if (date1 === date2) {
+            setEqualDates(true)
+            return
+        }
+
+        window.open(`/compare/${selectedId}/${date1}/${date2}`, '_blank', 'noopener,noreferrer');
     }
 
     return (
@@ -27,11 +55,19 @@ function App() {
                     <>
                         <Tickers selectTicker={selectTicker} selected={selectedId} tickersMenu={tickersMenu} toggleMenu={toggleMenu} />
                         <div className='container'>
-                            <LineChart selectedId={selectedId} />
+                            <LineChart selectedId={selectedId} passDates={passDates} />
+                            <div className='compare-selector-container'>
+                                <div className='dates-container'>
+                                    <DatesMenu date={date1} dateId={1} setDates={setDates} dateList={dateList} />
+                                    <DatesMenu date={date2} dateId={2} setDates={setDates} dateList={dateList} />
+                                </div>
+                                <button className={`compare-btn ${emptyDate && 'empty-date'} ${equalDates && 'equal-dates'}`} onClick={() => openCompare(date1, date2)}>Comparar</button>
+                            </div>
                         </div>
                     </>
                 } />
-                <Route path='/:id/:date' exact element={<Funds />} />
+                <Route path='/point/:id/:date' exact element={<Funds />} />
+                <Route path='/compare/:id/:date1/:date2' exact element={<Compare />} />
             </Routes>
             <Footer/>
         </>

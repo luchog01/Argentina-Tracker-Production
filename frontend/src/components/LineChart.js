@@ -4,7 +4,7 @@ import { Line } from 'react-chartjs-2'
 import { Chart as ChartJS } from 'chart.js/auto'
 import './LineChart.css'
 
-const LineChart = ({ selectedId }) => {
+const LineChart = ({ selectedId, passDates }) => {
     const [ticker, setTicker] = useState({
         "id": 0,
         "name": "",
@@ -21,15 +21,17 @@ const LineChart = ({ selectedId }) => {
             const res = await fetch(`http://52.200.228.178:8000/tickers/${id}`)
             const data = await res.json()
             setTicker(data)
+            passDates(data.funds.total.dates)
         }
 
         fetchTicker(selectedId)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedId])
 
     const openDetail = async (element) => {
         if (element.length > 0) {
             const date = ticker.funds.total.dates[element[0].index]
-            window.open(`/${selectedId}/${date}`, '_blank', 'noopener,noreferrer');
+            window.open(`/point/${selectedId}/${date}`, '_blank', 'noopener,noreferrer');
         }
     }
 
