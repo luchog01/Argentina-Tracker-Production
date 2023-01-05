@@ -1,14 +1,13 @@
-from unicodedata import name
 from fastapi import FastAPI, Depends, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
-from sqlalchemy import JSON
 import core.schemas.schemas as _schemas
 import core.services.services as _services
 import sqlalchemy.orm as _orm
-from typing import Dict, List
+from typing import Dict
 import uvicorn
 from settings import ENGINE_PSWD
-from datetime import datetime
+from excel_handler import handler as ExcelHandler
+from fastapi.responses import FileResponse
 
 app = FastAPI()
 
@@ -62,24 +61,36 @@ def tickers(ticker_id: int, db: _orm.Session = Depends(_services.get_db)):
         )
     return db_ticker
 
+@app.get("/excel/{ticker_id}", response_class=FileResponse)
+def excel(ticker_id: int, db: _orm.Session = Depends(_services.get_db)):
+    db_ticker = tickers(ticker_id=ticker_id, db=db)
+    some_file_path = ExcelHandler.get_excel(db_ticker.name)
+    return FileResponse(some_file_path, filename=f"{db_ticker.name}.xlsx")
+
 @app.get("/point/{ticker_id}/{date}", response_model=Dict)
 def point(ticker_id: int, date: str, db: _orm.Session = Depends(_services.get_db)):
     db_ticker = tickers(ticker_id=ticker_id, db=db)
-    resp = {"date": date, "price": 0.0, "name": db_ticker.name, "total": 0.0, "avg": 0.0, "funds": {}}
+    resp = {"date": date, "price": 0.0, "name": db_ticker.name, "funds": []}
+
+    # Add total and avg at the beginning of the table
+    first_keys = ["total", "avg"]
+    for key in first_keys:
+        ind: int = db_ticker.funds[key]["dates"].index(date)
+        resp["funds"].append([key, round(db_ticker.funds[key]["qty"][ind], 2)])
+        if resp["price"] == 0.0:
+            resp["price"] =  round(db_ticker.funds[key]["prices"][ind], 2)
+        db_ticker.funds.pop(key)
+
     for fund in db_ticker.funds.keys():
         try:
             ind: int = db_ticker.funds[fund]["dates"].index(date)
-            resp["funds"][fund] = round(db_ticker.funds[fund]["qty"][ind], 2)
+            resp["funds"].append([fund, round(db_ticker.funds[fund]["qty"][ind], 2)])
             if resp["price"] == 0.0:
                 resp["price"] =  round(db_ticker.funds[fund]["prices"][ind], 2)
             
-        except:
+        except Exception as e:
+            print(f"[WARNING] /point fund name: {fund} error: {str(e)}")
             pass
-
-    resp["total"] = resp["funds"]["total"]
-    resp["avg"] = resp["funds"]["avg"]
-    resp["funds"].pop('total', None)
-    resp["funds"].pop('avg', None)
 
     return resp
 
@@ -96,19 +107,29 @@ def compare(ticker_id: int, date1: str, date2: str, db: _orm.Session = Depends(_
         }
     
     dif["table"].append(["Fund", date1, date2, "Qty Delta", "% Delta"])
-    dif["table"].append(["total", resp1["total"], resp2["total"], round(resp2["total"]-resp1["total"],2), round(((resp2["total"]-resp1["total"]) * 100)/ resp1["total"], 2)])
-    dif["table"].append(["avg", resp1["avg"], resp2["avg"], round(resp2["avg"]-resp1["avg"], 2), round(((resp2["avg"]-resp1["avg"]) * 100)/ resp1["avg"], 2)])
-    for key in resp2["funds"].keys():
-        if key in resp1["funds"].keys():
-            dif_qty: float = round(resp2["funds"][key] - resp1["funds"][key],2)
+
+   
+    # Convert funds to dicts
+    resp1_funds_dict: dict = {}
+    for fund in resp1["funds"]:
+        resp1_funds_dict[fund[0]] = fund[1]
+    
+    resp2_funds_dict: dict = {}
+    for fund in resp2["funds"]:
+        resp2_funds_dict[fund[0]] = fund[1]
+
+    # Get the rest of the funds
+    for key in resp2_funds_dict:
+        if key in resp1_funds_dict:
+            dif_qty: float = round(resp2_funds_dict[key] - resp1_funds_dict[key],2)
             try:
-                dif_per: float = round((dif_qty*100)/resp1["funds"][key],2)
+                dif_per: float = round((dif_qty*100)/resp1_funds_dict[key],2)
             except:
                 dif_per: float = 0
-            dif["table"].append([key, resp1["funds"][key], resp2["funds"][key], dif_qty, dif_per])
+            dif["table"].append([key, resp1_funds_dict[key], resp2_funds_dict[key], dif_qty, dif_per])
         
         else:
-            dif["table"].append([key, 0, resp2["funds"][key], resp2["funds"][key], 100])
+            dif["table"].append([key, 0, resp2_funds_dict[key], resp2_funds_dict[key], 100])
     
     return dif
 
@@ -118,6 +139,7 @@ async def update_engine(password: str,today: str, request: Request, db: _orm.Ses
     try:
         if password == ENGINE_PSWD:
             payload = await request.json()
+            ExcelHandler.update_excel(payload, today)
             for t in payload.keys():
                 db_ticker = _services.get_ticker_by_name(db=db, name=t)
                 if db_ticker:
@@ -140,9 +162,7 @@ async def update_engine(password: str,today: str, request: Request, db: _orm.Ses
                         new_fund[f] = {"dates": [today], "qty": [payload[t][f]["qty"]], "prices": [payload[t][f]["price"]]}
                     _services.create_ticker(db=db, ticker=_schemas.createTicker(name=t,funds=new_fund,price=0,type="basic"))
         else:
-            raise HTTPException(
-                status_code=403, detail="Incorrect Password."
-            )
+            return "Incorrect Password"
     except Exception as e:
         print("[ERROR] engineUpdate: ",e)
         raise HTTPException(
