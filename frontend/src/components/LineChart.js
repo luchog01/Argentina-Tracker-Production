@@ -10,7 +10,7 @@ const LineChart = ({ selectedId, passDates }) => {
         "name": "",
         "funds": {
             "total": {},
-            "avg": {}
+            "avg" : {}
         },
         "price": 0,
         "type": ""
@@ -18,7 +18,7 @@ const LineChart = ({ selectedId, passDates }) => {
 
     useEffect(() => {
         const fetchTicker = async (id) => {
-            const res = await fetch(`http://52.200.228.178:8000/tickers/${id}`)
+            const res = await fetch(`http://${process.env.REACT_APP_PORT}/tickers/${id}`)
             const data = await res.json()
             setTicker(data)
             passDates(data.funds.total.dates)
@@ -134,7 +134,7 @@ const LineChart = ({ selectedId, passDates }) => {
                     hover: {
                         mode: 'nearest',
                         intersect: true,
-
+                        
                     },
                     onClick: (event, element) => openDetail(element),
                     onHover: (event, element) => {

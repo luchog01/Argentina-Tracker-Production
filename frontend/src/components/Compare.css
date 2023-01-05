@@ -1,6 +1,6 @@
-.compare-container {
+.funds-container {
         color: black;
-        width: 100vw;
+        width: 100%;
         min-height: 74.6vh;
         display: flex;
         flex-direction: column;
@@ -9,25 +9,36 @@
         padding-bottom: 4rem;
 }
 
-.compare-initial-data {
+.initial-data {
         justify-self: center;
         align-self: center;
         display: flex;
         flex-direction: column;
         width: 80vw;
-        padding-top: 1.5rem;
-        padding-bottom: 1.5rem;
+        margin-top: 2rem;
+        margin-bottom: 1.5rem;
 }
 
-.compare-initial-data h2 {
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-        font-size: 1.5rem;
+.fund-title {
+        margin-bottom: .5rem;
+        font-size: xx-large;
         font-weight: 600;
 }
 
-.compare-initial-data h2:nth-child(1) {
-        font-size: xx-large;
+.fund-subtitle {
+        margin-top: 1rem;
+        margin-bottom: .7rem;
+        font-size: 1.5rem;
+        font-weight: 400;
+}
+
+.initial-data div {
+        display: flex;
+        justify-content: space-between;
+}
+
+.excel-icon {
+        margin-right: .5rem;
 }
 
 .compare-grid {
@@ -40,15 +51,32 @@
         align-content: center;
 }
 
+.compare-grid h5:nth-of-type(1), h5:nth-of-type(2), h5:nth-of-type(3), h5:nth-of-type(4), h5:nth-of-type(5) {
+        font-weight: 600;
+}
+
 .compare-grid h5:nth-of-type(10n+1), h5:nth-of-type(10n+2), h5:nth-of-type(10n+3), h5:nth-of-type(10n+4), h5:nth-of-type(10n+5) {
-        background-color: rgb(202, 202, 202);
+        background-color: rgb(235, 235, 235);
 }
 
 .compare-data {
         padding: .5rem;
         font-size: medium;
-        border: 1px solid #333333;
-        margin-bottom: 0 - 1px;
+        border-top: .5px solid #969696;
         font-size: 1.2rem;
         font-weight: normal;
+}
+
+.compare-data:nth-last-child(1), .compare-data:nth-last-child(2), .compare-data:nth-last-child(3), .compare-data:nth-last-child(4), .compare-data:nth-last-child(5) {
+        border-bottom: .5px solid #969696;
+}
+
+.arrow {
+        color: #1c1c1c;
+        margin-left: .5rem;
+        font-size: medium;
+}
+
+.rotated {
+        transform: rotate(180deg);
 }

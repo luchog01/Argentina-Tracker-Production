@@ -1,39 +1,36 @@
 .container {
         display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
+        flex-wrap: wrap;
         width: 100%;
-        height: fit-content;
+        height: 94vh;
         position: relative;
-        top: 6vh;
+        top: 5vh;
         color: black;
+        padding-bottom: 3rem;
 }
 
-.compare-selector-container {
-        align-self: flex-start;
+.linechart-container {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-content: flex-start;
-        height: 26rem;
-        margin-left: 10vw;
-        width: 45rem;
-        max-width: 65vw;
+        align-items: flex-start;
 }
 
-.dates-container {
+.dates-selector-container {
         display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        margin-bottom: 3rem;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 2rem;
+        margin-left: 1rem;
 }
 
-.compare-btn {
+button {
         background-color: #006de9;
         color: #ffffff;
-        width: 13rem;
-        height: 3.4rem;
+        width: 11rem;
+        height: 3rem;
         padding: .8rem;
         border: none;
         border-radius: 8px;
@@ -43,14 +40,18 @@
         position: relative;
 }
 
-.compare-btn:hover {
+button:focus {
+        outline: 0;
+}
+
+button:hover {
         background-color: #1481ff;
         cursor: pointer;
         transition: 200ms;
 }
 
-button:focus {
-        outline: 0;
+.compare-btn {
+        margin-top: 1rem;
 }
 
 .empty-date::before {
@@ -60,7 +61,7 @@ button:focus {
         position: absolute;
         display: inline-block;
         bottom: 110%;
-        right: 20%;
+        right: 15%;
         width: 100%;
 }
 
@@ -71,6 +72,6 @@ button:focus {
         position: absolute;
         display: inline-block;
         bottom: 110%;
-        left: -21%;
+        left: -12%;
         width: 150%;
 }

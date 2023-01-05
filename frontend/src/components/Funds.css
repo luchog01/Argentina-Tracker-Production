@@ -1,55 +1,3 @@
-.funds-container {
-        color: black;
-        width: 100vw;
-        min-height: 74.6vh;
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        top: 6vh;
-        padding-bottom: 4rem;
-}
-
-.funds-initial-data {
-        justify-self: center;
-        align-self: center;
-        display: grid;
-        grid-template-areas: 
-        'title title'
-        'date price'
-        'total avg';
-        width: 80vw;
-        padding-top: 1.5rem;
-        padding-bottom: 1.5rem;
-}
-
-.funds-initial-data h2:nth-child(1) {
-        grid-area: title;
-        font-size: xx-large;
-}
-
-.funds-initial-data h2:nth-child(2) {
-        grid-area: date;
-}
-
-.funds-initial-data h2:nth-child(3) {
-        grid-area: price;
-}
-
-.funds-initial-data h2:nth-child(4) {
-        grid-area: total;
-}
-
-.funds-initial-data h2:nth-child(5) {
-        grid-area: avg;
-}
-
-.funds-initial-data h2 {
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-        font-size: 1.5rem;
-        font-weight: 600;
-}
-
 .funds-grid {
         justify-self: center;
         align-self: center;
@@ -60,15 +8,22 @@
         align-content: center;
 }
 
+.funds-grid h4:nth-of-type(1), h4:nth-of-type(2) {
+        font-weight: 600;
+}
+
 .funds-grid h4:nth-of-type(4n+1), h4:nth-of-type(4n+2) {
-        background-color: rgb(202, 202, 202);
+        background-color: rgb(235, 235, 235);;
 }
 
 .fund {
         padding: .5rem;
         font-size: medium;
-        border: 1px solid #333333;
-        margin-bottom: 0 - 1px;
+        border-top: .5px solid #969696;
         font-size: 1.2rem;
         font-weight: normal;
+}
+
+.fund:nth-last-child(1),  .fund:nth-last-child(2){
+        border-bottom: .5px solid #969696;
 }

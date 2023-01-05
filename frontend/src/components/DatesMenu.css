@@ -2,12 +2,12 @@
         display: flex;
         flex-direction: column;
         position: relative;
-        margin-top: 2rem;
-        margin-right: 2rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
 }
 
 .menu-trigger {
-        width: 13rem;
+        width: 11rem;
         padding: .8rem;
         display: flex;
         justify-content: space-between;
@@ -35,7 +35,7 @@
 }
 
 .dates-menu-item {
-        width: 12rem;
+        width: 11rem;
         padding: .8rem;
         background-color: #ffffff;
         border-top: 1px solid rgba(0, 0, 0, .1);
