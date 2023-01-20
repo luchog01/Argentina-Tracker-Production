@@ -44,3 +44,10 @@
 .bars:active {
         filter: brightness(130%);
 }
+
+.beta {
+        display: flex;
+        align-items: flex-end;
+        height: 35%;
+        margin-left: .4rem;
+}

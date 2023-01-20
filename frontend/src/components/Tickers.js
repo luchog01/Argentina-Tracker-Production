@@ -19,7 +19,7 @@ const Tickers = ({ selectTicker, selected, tickersMenu, toggleMenu }) => {
 
     return (
         <div className={tickersMenu ? 'tickers tickers-menu-active' : 'tickers'}>
-            <input className='search' type="text" placeholder='Buscar...' onChange={(event) => {
+            <input className='search' type="text" placeholder='Buscar' onChange={(event) => {
                 setSearchTerm(event.target.value)
             }} />
             {Object.keys(tickers).filter((id) => {

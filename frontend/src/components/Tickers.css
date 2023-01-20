@@ -1,7 +1,7 @@
 .tickers {
         background-color: #005aa3;
-        width: 15rem;
-        min-width: 15rem;
+        width: 12rem;
+        min-width: 12rem;
         height: 94vh;
         display: flex;
         flex-direction: column;
@@ -15,6 +15,15 @@
         left: -15rem;
         transition: all 0.2s ease-in-out;
         z-index: 5;
+}
+
+.tickers::-webkit-scrollbar {
+        width: .6vw;
+}
+
+.tickers::-webkit-scrollbar-thumb {
+        background-color: #007de4;
+        border-radius: 10px;
 }
 
 .tickers-menu-active {
@@ -32,6 +41,7 @@
         margin-top: .7rem;
         margin-bottom: .7rem;
         color: #1c1c1c;
+        border-radius: 10px;
 }
 
 .search:focus {
@@ -43,18 +53,18 @@
 }
 
 .ticker {
-        width: 100%;
+        width: 90%;
         height: 2.8rem;
         min-height: 2.8rem;
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: larger;
+        font-size: large;
+        border-radius: 10px;
 }
 
 .ticker:hover {
-        background-color: #005ca7;
-        filter: brightness(110%);
+        background-color: #0066b9;
         cursor: pointer;
         transition: 100ms;
 }
@@ -64,11 +74,12 @@
 }
 
 .selected {
-        background-color: #006ec9;
+        filter: brightness(110%);
+        background-color: #0066b9;
 }
 
 .selected:hover {
-        background-color: #006ac0;
+        background-color: #0073d1;
 }
 
 .selected:active {

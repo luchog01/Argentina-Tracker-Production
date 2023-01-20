@@ -14,6 +14,9 @@ const Header = ({ toggleMenu }) => {
             <div className='title-container' onClick={() => navigate('/')}>
                 <img alt='' src={window.location.origin + '/logo.png'} className='icon'/>
                 <h1 className='title'>FCI Tracker</h1>
+                <div className='beta'>
+                    <h5>(Beta)</h5>
+                </div>
             </div>
         </div>
     )

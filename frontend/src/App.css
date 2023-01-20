@@ -1,3 +1,14 @@
+.backdrop {
+        width: 100vw;
+        height: 94vh;
+        top: 6vh;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.2);
+        position: fixed;
+        z-index: 4;
+        transition: all .1s ease;
+}
+
 .container {
         display: flex;
         justify-content: center;

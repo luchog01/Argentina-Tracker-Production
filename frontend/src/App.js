@@ -63,6 +63,11 @@ function App() {
                 <Route path='/' exact element={
                     <>
                         <Tickers selectTicker={selectTicker} selected={selectedId} tickersMenu={tickersMenu} toggleMenu={toggleMenu} />
+                        {tickersMenu ? (
+                            <div className="backdrop" onClick={toggleMenu} />
+                        ) : (
+                            <div className="backdrop" style={{ display: "none" }} />
+                        )}
                         <div className='container'>
                             <div className='linechart-container'>
                                 <DownloadButton exportFunds={exportFunds}/>
