@@ -171,7 +171,34 @@ async def update_engine(password: str,today: str, request: Request, db: _orm.Ses
 # -------------------------------------------------------------------
 # PLAYGROUND
 # -------------------------------------------------------------------
+# @app.get("/test")
+# def test(db: _orm.Session = Depends(_services.get_db)):
+#     try:
+#         print("test")
+#         tickers = _services.get_tickers(db=db)
+#         print(type(tickers))
+#         for t in tickers:
+#             print(t.name)
+#             funds = t.funds
+#             print(type(funds))
+#             a = 0
+#             elements = 0
+#             for f in funds.keys():
+#                 if f not in ["total", "avg"]:
+#                     try:
+#                         a += funds[f]["qty"][1]
+#                         elements += 1
+#                     except:
+#                         print(f)
 
+#             funds["avg"]["qty"][1] = round(a/elements,2)
+#             funds["total"]["qty"][1] = round(a,2)
+#             _services.update_ticker(db=db, ticker=_schemas.createTicker(name=t.name,funds=funds,price=0,type="basic"))
+#     except Exception as e:
+#         print("[ERROR] test: ",e)
+#         raise HTTPException(
+#                 status_code=500, detail="Internal Server Error"
+#             )
 # -------------------------------------------------------------------
 # RUN
 # -------------------------------------------------------------------

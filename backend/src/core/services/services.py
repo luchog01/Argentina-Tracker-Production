@@ -3,6 +3,7 @@ import sqlalchemy.orm as _orm
 from ..models import models as _models
 from ..schemas import schemas as _schemas
 from ..database import database as _database
+from typing import List
 
 
 def create_database():
@@ -25,7 +26,7 @@ def get_ticker_by_name(db: _orm.Session, name: str):
     return db.query(_models.Ticker).filter(_models.Ticker.name == name).first()
 
 
-def get_tickers(db: _orm.Session):
+def get_tickers(db: _orm.Session) -> List[_models.Ticker]:
     return db.query(_models.Ticker).all()
 
 
