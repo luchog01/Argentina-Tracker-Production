@@ -8,6 +8,7 @@ import uvicorn
 from settings import ENGINE_PSWD
 from excel_handler import handler as ExcelHandler
 from fastapi.responses import FileResponse
+import sys
 
 app = FastAPI()
 
@@ -164,9 +165,10 @@ async def update_engine(password: str,today: str, request: Request, db: _orm.Ses
         else:
             return "Incorrect Password"
     except Exception as e:
+        exc_type, exc_obj, exc_tb = sys.exc_info()
         print("[ERROR] engineUpdate: ",e)
         raise HTTPException(
-                status_code=500, detail="Internal Server Error"
+                status_code=500, detail=f"Internal Server Error {exc_type} {exc_tb.tb_lineno} {e}"
             )    
 # -------------------------------------------------------------------
 # PLAYGROUND
