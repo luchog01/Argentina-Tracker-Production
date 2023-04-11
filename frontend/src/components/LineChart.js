@@ -2,9 +2,10 @@ import { React, useState, useEffect } from 'react'
 import { Line } from 'react-chartjs-2'
 /* eslint-disable no-unused-vars */
 import { Chart as ChartJS } from 'chart.js/auto'
+import NotFound from './NotFound'
 import './LineChart.css'
 
-const LineChart = ({ selectedId, passDates }) => {
+const LineChart = ({ selectedId, passDates, ikey }) => {
     const [ticker, setTicker] = useState({
         "id": 0,
         "name": "",
@@ -15,13 +16,17 @@ const LineChart = ({ selectedId, passDates }) => {
         "price": 0,
         "type": ""
     })
+    const [validKey, setValidKey] = useState(false)
 
     useEffect(() => {
         const fetchTicker = async (id) => {
-            const res = await fetch(`http://${process.env.REACT_APP_PORT}/tickers/${id}`)
+            const res = await fetch(`http://${process.env.REACT_APP_PORT}/tickers/${id}?key=${ikey}`)
             const data = await res.json()
-            setTicker(data)
-            passDates(data.funds.total.dates)
+            if (data['detail'] !== 'Invalid Key.') {
+                    setTicker(data)
+                    passDates(data.funds.total.dates)
+                    setValidKey(true)
+            }
         }
 
         fetchTicker(selectedId)
@@ -62,87 +67,89 @@ const LineChart = ({ selectedId, passDates }) => {
     }
 
     return (
-        <div className='line-chart'>
-            <Line
-                data={data}
-                options={{
-                    scales: {
-                        y: {
-                            ticks: {
-                                color: '#000000',
-                                font: {
-                                    size: 14,
-                                    weight: 'bolder'
+        <>
+            <div className='line-chart'>
+                <Line
+                    data={data}
+                    options={{
+                        scales: {
+                            y: {
+                                ticks: {
+                                    color: '#000000',
+                                    font: {
+                                        size: 14,
+                                        weight: 'bolder'
+                                    }
+                                },
+                                grid: {
+                                    color: '#404040'
                                 }
                             },
-                            grid: {
-                                color: '#404040'
+                            x: {
+                                ticks: {
+                                    color: '#000000',
+                                    font: {
+                                        size: 14,
+                                        weight: 'bolder'
+                                    }
+                                },
+                                grid: {
+                                    color: '#404040'
+                                }
                             }
                         },
-                        x: {
-                            ticks: {
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: ticker.name,
                                 color: '#000000',
                                 font: {
-                                    size: 14,
-                                    weight: 'bolder'
+                                    size: 18
                                 }
                             },
-                            grid: {
-                                color: '#404040'
-                            }
-                        }
-                    },
-                    plugins: {
-                        title: {
-                            display: true,
-                            text: ticker.name,
-                            color: '#000000',
-                            font: {
-                                size: 18
+                            legend: {
+                                display: true,
+                                onHover: (event, element) => {
+                                    event.native.target.style.cursor = 'pointer'
+                                }
+                            },
+                            tooltip: {
+                                mode: 'nearest',
+                                intersect: true,
+                                titleFont: {
+                                    size: 16
+                                },
+                                bodyFont: {
+                                    size: 12
+                                },
+                                callbacks: {
+                                    title: (context) => {
+                                        return context[0].label
+                                    },
+                                    label: (context) => {
+                                        const newLineArray = []
+                                        const index = context.dataIndex
+                                        newLineArray.push(`Cantidad: ${context.dataset.data[index].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`)
+                                        newLineArray.push(`Precio: ${ticker.funds.total.prices[index].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`)
+                                        return newLineArray
+                                    }
+                                },
+                                displayColors: false
                             }
                         },
-                        legend: {
-                            display: true,
-                            onHover: (event, element) => {
-                                event.native.target.style.cursor = 'pointer'
-                            }
-                        },
-                        tooltip: {
+                        hover: {
                             mode: 'nearest',
                             intersect: true,
-                            titleFont: {
-                                size: 16
-                            },
-                            bodyFont: {
-                                size: 12
-                            },
-                            callbacks: {
-                                title: (context) => {
-                                    return context[0].label
-                                },
-                                label: (context) => {
-                                    const newLineArray = []
-                                    const index = context.dataIndex
-                                    newLineArray.push(`Cantidad: ${context.dataset.data[index].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`)
-                                    newLineArray.push(`Precio: ${ticker.funds.total.prices[index].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`)
-                                    return newLineArray
-                                }
-                            },
-                            displayColors: false
+                            
+                        },
+                        onClick: (event, element) => openDetail(element),
+                        onHover: (event, element) => {
+                            event.native.target.style.cursor = element[0] ? 'pointer' : 'default'
                         }
-                    },
-                    hover: {
-                        mode: 'nearest',
-                        intersect: true,
-                        
-                    },
-                    onClick: (event, element) => openDetail(element),
-                    onHover: (event, element) => {
-                        event.native.target.style.cursor = element[0] ? 'pointer' : 'default'
-                    }
-                }}
-            />
-        </div>
+                    }}
+                />
+            </div>
+        </>
     )
 }
 

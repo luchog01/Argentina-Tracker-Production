@@ -1,0 +1,56 @@
+.verification-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        min-height: 75.5vh;
+        position: relative;
+        top: 6vh;
+        color: black;
+}
+.code-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        padding: 2rem;
+}
+
+.code-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+}
+
+.code-form label {
+        font-size: 1.5rem;
+        font-weight: normal;
+        margin-bottom: 1.5rem;
+}
+
+.code-form input {
+        margin-bottom: 1.5rem;
+}
+
+.code-input {
+        width: 11rem;
+        padding: .8rem;
+        display: flex;
+        background-color: #ffffff;
+        color: #1c1c1c;
+        border: 1px solid #333333;
+        border-radius: 8px;
+}
+
+.incorrect-key::before  {
+        content: "La clave es incorrecta.";
+        color: red;
+        font-size: 13px;
+        position: absolute;
+        display: inline-block;
+        bottom: 110%;
+        left: -12%;
+        width: 100%;
+}

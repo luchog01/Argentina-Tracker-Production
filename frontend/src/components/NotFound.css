@@ -1,0 +1,39 @@
+.notfound-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 94vh;
+        position: relative;
+        top: 6vh;
+        color: black;
+}
+
+.notfound-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 80%;
+        height: 50%;
+}
+
+.notfound-text h1 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+}
+
+.notfound-text h2 {
+        font-size: 1.5rem;
+        font-weight: 100;
+        margin-bottom: .5rem;
+        color: #333333;
+}
+
+.notfound-text a:link {
+        color: #333333;
+}
+
+.notfound-text a:visited {
+        color: #333333;
+}
