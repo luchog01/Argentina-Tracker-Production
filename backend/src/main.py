@@ -29,7 +29,7 @@ app.add_middleware(
 
 @app.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"message": "Hola Sofi <3"}
 
 # FIX Security Breach
 # @app.post("/createTicker", response_model=_schemas.Ticker)
