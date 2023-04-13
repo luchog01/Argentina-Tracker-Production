@@ -39,7 +39,7 @@ function App() {
     }
 
     const exportFunds = () => {
-        window.open(`http://${process.env.REACT_APP_PORT}/excel/${selectedId}`, '_blank', 'noopener,noreferrer')
+        window.open(`http://${process.env.REACT_APP_PORT}/excel/${selectedId}?key=${key}`, '_blank', 'noopener,noreferrer')
     }
 
     const passDates = (dates) => {
