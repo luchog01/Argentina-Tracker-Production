@@ -1,5 +1,5 @@
 # excels
-#backend/src/excel_handler/files/
+backend/src/excel_handler/files/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
