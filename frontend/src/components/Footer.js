@@ -19,7 +19,7 @@ const Footer = () => {
                 <p>Telefono: 1151102973</p>
             </div>
             <div>
-                <p>Diseño Grafico:</p>
+                <p>Diseño Logo:</p>
                 <p>Email: sashalebot@gmail.com</p>
                 <p>Telefono: 1136295094</p>
             </div>

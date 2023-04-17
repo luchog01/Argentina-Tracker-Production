@@ -11,7 +11,7 @@ const Header = ({ toggleMenu }) => {
     return (
         <div className='header'>
             {location.pathname === '/graph' && <FontAwesomeIcon icon={faBars} className='bars' onClick={() => toggleMenu()}/>}
-            <div className='title-container' onClick={() => navigate('/')}>
+            <div className='title-container' onClick={() => navigate('/graph')}>
                 <img alt='' src={window.location.origin + '/logo.png'} className='icon'/>
                 <h1 className='title'>FCI Tracker</h1>
                 <div className='beta'>
