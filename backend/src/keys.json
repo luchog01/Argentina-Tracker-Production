@@ -18,5 +18,9 @@
     "peach15": {
         "type": "permanent",
         "used_times": 0
+    },
+    "JPMorgan": {
+        "type": "temp",
+        "used_times": 0
     }
 }
