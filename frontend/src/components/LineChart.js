@@ -62,7 +62,8 @@ const LineChart = ({ selectedId, passDates, ikey }) => {
             pointRadius: 7,
             pointHoverRadius: 9,
             fill: false,
-            tension: 0
+            tension: 0,
+            hidden: true
         }]
     }
 
