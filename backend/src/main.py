@@ -141,19 +141,30 @@ def compare(ticker_id: int, date1: str, date2: str, db: _orm.Session = Depends(_
     for fund in resp2["funds"]:
         resp2_funds_dict[fund[0]] = fund[1]
 
-    # Get the rest of the funds
-    for key in resp2_funds_dict:
+
+    # merge the into list without repeating
+    keys = list(set(resp1_funds_dict.keys()) | set(resp2_funds_dict.keys()))
+    # move the key total and avg to the beginning
+    keys.remove("total")
+    keys.remove("avg")
+    keys = ["total", "avg"] + keys
+
+    for key in keys:
+
+        qty1: float = 0.0
+        qty2: float = 0.0
         if key in resp1_funds_dict:
-            dif_qty: float = round(resp2_funds_dict[key] - resp1_funds_dict[key],2)
-            try:
-                dif_per: float = round((dif_qty*100)/resp1_funds_dict[key],2)
-            except:
-                dif_per: float = 0
-            dif["table"].append([key, resp1_funds_dict[key], resp2_funds_dict[key], dif_qty, dif_per])
+            qty1= resp1_funds_dict[key]
+        if key in resp2_funds_dict:
+            qty2 = resp2_funds_dict[key]
         
-        else:
-            dif["table"].append([key, 0, resp2_funds_dict[key], resp2_funds_dict[key], 100])
-    
+        dif_qty: float = round(qty2 - qty1,2)
+        try:
+            dif_per: float = round((dif_qty*100)/qty1,2)
+        except:
+            dif_per: float = 0
+        dif["table"].append([key, qty1, qty2, dif_qty, dif_per])
+
     return dif
 
 @app.post("/support_ticket", tags=["Support"])
