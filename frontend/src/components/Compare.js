@@ -50,6 +50,18 @@ const Compare = ({ ikey }) => {
         setSortedColumn(column)
     }
 
+    const changeColor = (data) => {
+        const style = {color: ''}
+        if (data < 0) {
+            style['color'] = 'rgb(220, 0, 0)'
+        } else if (data > 0) {
+            style['color'] = 'green'
+        } else {
+            style['color'] = 'black'
+        }
+        return style
+    }
+
     const exportFunds = () => {
         console.log('EXPORTAR')
         const fundsToExcel = [...fundsList]
@@ -110,17 +122,21 @@ const Compare = ({ ikey }) => {
                         <h5 className='compare-data'>Total</h5>
                         <h5 className='compare-data'>{compareData.table[1][1]}</h5>
                         <h5 className='compare-data'>{compareData.table[1][2]}</h5>
-                        <h5 className='compare-data'>{compareData.table[1][3]}</h5>
-                        <h5 className='compare-data'>{compareData.table[1][4]}</h5>
+                        <h5 className='compare-data' style={changeColor(compareData.table[1][3])}>{compareData.table[1][3]}</h5>
+                        <h5 className='compare-data' style={changeColor(compareData.table[1][4])}>{compareData.table[1][4]}</h5>
                         <h5 className='compare-data'>Promedio</h5>
                         <h5 className='compare-data'>{compareData.table[2][1]}</h5>
                         <h5 className='compare-data'>{compareData.table[2][2]}</h5>
-                        <h5 className='compare-data'>{compareData.table[2][3]}</h5>
-                        <h5 className='compare-data'>{compareData.table[2][4]}</h5>
+                        <h5 className='compare-data' style={changeColor(compareData.table[2][3])}>{compareData.table[2][3]}</h5>
+                        <h5 className='compare-data' style={changeColor(compareData.table[2][4])}>{compareData.table[2][4]}</h5>
                         {fundsList.map((fund) => (
-                            fund.map((data, index) => (
-                                <h5 key={index} className='compare-data'>{data}</h5>
-                            ))
+                            <>
+                                <h5 className='compare-data'>{fund[0]}</h5>
+                                <h5 className='compare-data'>{fund[1]}</h5>
+                                <h5 className='compare-data'>{fund[2]}</h5>
+                                <h5 className='compare-data' style={changeColor(fund[3])}>{fund[3]}</h5>
+                                <h5 className='compare-data' style={changeColor(fund[4])}>{fund[4]}</h5>
+                            </>
                         ))}
                     </div>
                 </div>
