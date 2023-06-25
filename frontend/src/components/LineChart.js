@@ -73,6 +73,7 @@ const LineChart = ({ selectedId, passDates, ikey }) => {
                 <Line
                     data={data}
                     options={{
+                        maintainAspectRatio: false,
                         scales: {
                             y: {
                                 ticks: {
