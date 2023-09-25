@@ -1,17 +1,21 @@
-from fastapi import FastAPI, Depends, HTTPException, Request
+from fastapi import FastAPI, Depends, HTTPException, Request, status
 from fastapi.middleware.cors import CORSMiddleware
 import core.schemas.schemas as _schemas
 import core.services.services as _services
 import sqlalchemy.orm as _orm
 from typing import Dict
 import uvicorn
-from settings import ENGINE_PSWD
+from settings import ENGINE_PSWD, DATA_FORMAT, SESSION_TIME, IGNORE_TICKERS
 from excel_handler import handler as ExcelHandler
 from fastapi.responses import FileResponse
 from datetime import datetime
 import sys
 import json
+from cachetools import TTLCache, cached
+import os
 
+module_dir = os.path.dirname(__file__)  # get current directory
+users_file = os.path.join(module_dir, 'users.json')
 app = FastAPI()
 
 origins = [
@@ -29,54 +33,67 @@ app.add_middleware(
 )
 
 
+@app.on_event("startup")
+def startup_event():
+    if not os.path.isfile(users_file):  # Check if the file exists
+        with open(users_file, "w") as f:
+            json.dump({}, f, indent=4)
+    else:  # Check if the file is empty
+        flag = False
+        with open(users_file, "r") as f:
+            if f.read() == "":
+                flag = True
+        if flag:
+            with open(users_file, "w") as f:
+                json.dump({}, f, indent=4)
+                
+
+@cached(cache=TTLCache(maxsize=1024, ttl=SESSION_TIME))
+def execute_login(ip: str) -> datetime:
+    with open(users_file, "r") as f:
+        users = json.load(f)
+    last_login = datetime.now().strftime(DATA_FORMAT)
+    print(f"[INFO] {ip} logged in at {last_login}. Session time: {SESSION_TIME}")
+
+    if ip in users.keys(): # If the user already exists
+        users[ip]["count"] += 1
+        users[ip]["last_login"] = last_login
+    else: # If the user does not exist
+        users[ip] = {"count": 1, "last_login": last_login}
+
+    with open(users_file, "w") as f:
+        json.dump(users, f, indent=4)
+    return last_login
+
+
+def login(request: Request) -> None:
+    ip = request.client.host
+    execute_login(ip)
+
+
 @app.get("/", tags=["Root"])
-async def root():
+def root():
     return {"message": "Hello World"}
 
-# FIX Security Breach
-# @app.post("/createTicker", response_model=_schemas.Ticker)
-# async def createTicker(ticker: _schemas.createTicker, db: _orm.Session = Depends(_services.get_db)):
-#     db_ticker = _services.get_ticker_by_name(db=db, name=ticker.name)
-#     if db_ticker:
-#         raise HTTPException(
-#             status_code=400, detail="Ticker already in Database."
-#         )
-#     return _services.create_ticker(db=db, ticker=ticker)
-
-
-@app.post("/login", tags=["Login"])
-def login(key: str, internal: bool = True):
-    passed = False
-    with open("keys.json", "r") as f:
-        keys = json.load(f)
-        if key in keys:
-            if not internal:
-                keys[key]["used_times"] += 1
-            passed = True
-        
-    with open("keys.json", "w") as f:
-        json.dump(keys, f, indent=4)
-    
-    if passed:
-        return {"detail": "OK"}
-    else:
-        raise HTTPException(
-            status_code=403, detail="Invalid Key."
-        )
 
 @app.get("/tickers/", tags=["Tickers"])
-def read_users(
-    db: _orm.Session = Depends(_services.get_db), _ = Depends(login)
+def all_tickers(
+    db: _orm.Session = Depends(_services.get_db),
+    _ = Depends(login)
 ):
     tickers = _services.get_tickers(db=db)
     response = {}
     for ticker in tickers:
-        response[ticker.id] = ticker.name
+        if ticker.name not in IGNORE_TICKERS:
+            response[ticker.id] = ticker.name
     return response
 
 
 @app.get("/tickers/{ticker_id}", tags=["Tickers"], response_model=_schemas.Ticker)
-def tickers(ticker_id: int, db: _orm.Session = Depends(_services.get_db), _ = Depends(login)):
+def tickers(
+    ticker_id: int, db: _orm.Session = Depends(_services.get_db),
+    _ = Depends(login)
+):
     db_ticker = _services.get_ticker(db=db, id=ticker_id)
     if db_ticker is None:
         raise HTTPException(
@@ -85,13 +102,22 @@ def tickers(ticker_id: int, db: _orm.Session = Depends(_services.get_db), _ = De
     return db_ticker
 
 @app.get("/excel/{ticker_id}", tags=["Tickers"], response_class=FileResponse)
-def excel(ticker_id: int, db: _orm.Session = Depends(_services.get_db), _ = Depends(login)):
+def excel(
+    ticker_id: int,
+    db: _orm.Session = Depends(_services.get_db),
+    _ = Depends(login)
+):
     db_ticker = tickers(ticker_id=ticker_id, db=db)
     some_file_path = ExcelHandler.get_excel(db_ticker.name)
     return FileResponse(some_file_path, filename=f"{db_ticker.name}.xlsx")
 
 @app.get("/point/{ticker_id}/{date}", tags=["Tickers"], response_model=Dict)
-def point(ticker_id: int, date: str, db: _orm.Session = Depends(_services.get_db), _ = Depends(login)):
+def point(
+    ticker_id: int,
+    date: str,
+    db: _orm.Session = Depends(_services.get_db),
+    _ = Depends(login)
+):
     db_ticker = tickers(ticker_id=ticker_id, db=db)
     resp = {"date": date, "price": 0.0, "name": db_ticker.name, "funds": []}
 
@@ -118,7 +144,13 @@ def point(ticker_id: int, date: str, db: _orm.Session = Depends(_services.get_db
     return resp
 
 @app.get("/compare/{ticker_id}/{date1}/{date2}", tags=["Tickers"], response_model=Dict)
-def compare(ticker_id: int, date1: str, date2: str, db: _orm.Session = Depends(_services.get_db), _ = Depends(login)):
+def compare(
+    ticker_id: int,
+    date1: str,
+    date2: str,
+    db: _orm.Session = Depends(_services.get_db),
+    _ = Depends(login)
+):
     resp1: dict = point(ticker_id=ticker_id, date=date1,db=db)
     resp2: dict = point(ticker_id=ticker_id, date=date2,db=db)
 
@@ -168,13 +200,13 @@ def compare(ticker_id: int, date1: str, date2: str, db: _orm.Session = Depends(_
     return dif
 
 @app.post("/support_ticket", tags=["Support"])
-async def support_ticket(msg: str, _ = Depends(login)):
+async def support_ticket(msg: str):
     with open("support.txt", "a") as f:
         now = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
         f.write(f"{now} - {msg}")
 
 @app.get("/support_ticket/{password}", tags=["Support"])
-async def support_ticket(password: str, _ = Depends(login)):
+async def support_ticket(password: str):
     if password != ENGINE_PSWD:
         return "Wrong password"
     

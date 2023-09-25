@@ -6,3 +6,4 @@ selenium
 Levenshtein
 pyhomebroker
 aiohttp
+cachetools

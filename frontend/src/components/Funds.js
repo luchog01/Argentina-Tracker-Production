@@ -17,7 +17,7 @@ const Funds = ({ ikey }) => {
 
     useEffect(() => {
         const fetchFunds = async () => {
-            const res = await fetch(`http://${process.env.REACT_APP_PORT}/point/${id}/${date}?key=${ikey}`)
+            const res = await fetch(`http://${process.env.REACT_APP_PORT}/point/${id}/${date}`)
             const data = await res.json()
             setFundsData(data)
             

@@ -5,7 +5,7 @@ import { Chart as ChartJS } from 'chart.js/auto'
 import NotFound from './NotFound'
 import './LineChart.css'
 
-const LineChart = ({ selectedId, passDates, ikey }) => {
+const LineChart = ({ selectedId, passDates }) => {
     const [ticker, setTicker] = useState({
         "id": 0,
         "name": "",
@@ -16,19 +16,15 @@ const LineChart = ({ selectedId, passDates, ikey }) => {
         "price": 0,
         "type": ""
     })
-    const [validKey, setValidKey] = useState(false)
 
     useEffect(() => {
         const fetchTicker = async (id) => {
-            const res = await fetch(`http://${process.env.REACT_APP_PORT}/tickers/${id}?key=${ikey}`)
+            const res = await fetch(`http://${process.env.REACT_APP_PORT}/tickers/${id}`)
             const data = await res.json()
-            if (data['detail'] !== 'Invalid Key.') {
-                    setTicker(data)
-                    passDates(data.funds.total.dates)
-                    setValidKey(true)
-            }
+            setTicker(data)
+            passDates(data.funds.total.dates)
         }
-
+        
         fetchTicker(selectedId)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedId])
