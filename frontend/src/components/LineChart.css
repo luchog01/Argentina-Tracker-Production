@@ -4,6 +4,7 @@
         align-items: center;
         width: 70vw;
         min-width: 60rem;
+        min-height: 35em;
         height: 70vh;
         position: relative;
         transition: all 0.2s ease-in-out;
@@ -12,13 +13,5 @@
 @media only screen and (max-width: 1000px) {
         .line-chart {
                 min-width: 90vw;
-                height: 60vh;
-        }
-}
-
-@media only screen and (max-width: 700px) {
-        .line-chart {
-                min-width: 90vw;
-                height: 400px;
         }
 }
