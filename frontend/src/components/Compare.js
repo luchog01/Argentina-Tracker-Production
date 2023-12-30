@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons'
 import DownloadButton from './DownloadButton'
 import * as XLSX from 'xlsx'
-import NotFound from './NotFound'
+import Loader from './Loader'
 
 const Compare = ({ ikey }) => {
     const { id } = useParams()
@@ -15,6 +15,7 @@ const Compare = ({ ikey }) => {
     const [fundsList, setFundsList] = useState([])
     const [descending, setDescending] = useState(true)
     const [sortedColumn, setSortedColumn] = useState(3)
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         const fetchFunds = async () => {
@@ -27,9 +28,12 @@ const Compare = ({ ikey }) => {
                 return second[3] - first[3];
             })
             setFundsList(fundsListFromServer)
+            setLoading(false)
         }
 
+        
         fetchFunds()
+        
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [id, date1, date2])
 
@@ -51,7 +55,7 @@ const Compare = ({ ikey }) => {
     }
 
     const changeColor = (data) => {
-        const style = {color: ''}
+        const style = { color: '' }
         if (data < 0) {
             style['color'] = 'rgb(220, 0, 0)'
         } else if (data > 0) {
@@ -78,14 +82,15 @@ const Compare = ({ ikey }) => {
 
     return (
         <>
-            {Object.keys(compareData).length > 0 ? 
+            {loading ? <Loader />
+                :
                 <div className='funds-container'>
                     <div className='initial-data'>
                         <h2 className='fund-title'>{compareData.name}</h2>
                         <h2 className='fund-subtitle'>Fechas: {compareData.date}</h2>
                         <div>
                             <h2 className='fund-subtitle'>Precio: {compareData.price}</h2>
-                            <DownloadButton exportFunds={exportFunds}/>
+                            <DownloadButton exportFunds={exportFunds} />
                         </div>
                     </div>
                     <div className='compare-grid'>
@@ -104,19 +109,19 @@ const Compare = ({ ikey }) => {
                         <h5 className='compare-data' onClick={() => sortByColumn(2)}>
                             {date2}
                             {sortedColumn === 2 &&
-                                <FontAwesomeIcon icon={faArrowDown} className={descending ? 'arrow' : 'arrow rotated'}/>
+                                <FontAwesomeIcon icon={faArrowDown} className={descending ? 'arrow' : 'arrow rotated'} />
                             }
                         </h5>
                         <h5 className='compare-data' onClick={() => sortByColumn(3)}>
                             Qty Delta
                             {sortedColumn === 3 &&
-                                <FontAwesomeIcon icon={faArrowDown} className={descending ? 'arrow' : 'arrow rotated'}/>
+                                <FontAwesomeIcon icon={faArrowDown} className={descending ? 'arrow' : 'arrow rotated'} />
                             }
                         </h5>
                         <h5 className='compare-data' onClick={() => sortByColumn(4)}>
                             % Delta
                             {sortedColumn === 4 &&
-                                <FontAwesomeIcon icon={faArrowDown} className={descending ? 'arrow' : 'arrow rotated'}/>
+                                <FontAwesomeIcon icon={faArrowDown} className={descending ? 'arrow' : 'arrow rotated'} />
                             }
                         </h5>
                         <h5 className='compare-data'>Total</h5>
@@ -140,7 +145,6 @@ const Compare = ({ ikey }) => {
                         ))}
                     </div>
                 </div>
-                : <NotFound/>
             }
         </>
     )

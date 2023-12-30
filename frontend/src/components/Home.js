@@ -11,7 +11,7 @@ import React from 'react'
 
 const Home = () => {
         const openGraph = () => {
-                window.open(`/graph`, '_self', 'noopener,noreferrer')
+                window.open(`/graph/1`, '_self', 'noopener,noreferrer')
         }
 
         return (

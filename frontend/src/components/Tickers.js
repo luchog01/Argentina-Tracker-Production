@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import Ticker from './Ticker'
 import './Tickers.css'
 
-const Tickers = ({ selectTicker, selected, tickersMenu, toggleMenu }) => {
+const Tickers = ({ openTicker, selected, tickersMenu, toggleMenu }) => {
     const [tickers, setTickers] = useState({})
     const [tickersFromServer, setTickersFromServer] = useState({})
     const [searchTicker, setSearchTicker] = useState('')
@@ -50,7 +50,7 @@ const Tickers = ({ selectTicker, selected, tickersMenu, toggleMenu }) => {
                     return key
                 } return ''
             }).map((key, index) => (
-                <Ticker key={key} id={findIdByName(tickers[key])} name={tickers[key]} selectTicker={selectTicker} selected={selected} toggleMenu={toggleMenu} />
+                <Ticker key={key} id={findIdByName(tickers[key])} name={tickers[key]} openTicker={openTicker} selected={selected} toggleMenu={toggleMenu} />
             ))}
         </div>
     )

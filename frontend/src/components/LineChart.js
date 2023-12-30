@@ -1,38 +1,15 @@
-import { React, useState, useEffect } from 'react'
+import React from 'react'
 import { Line } from 'react-chartjs-2'
 /* eslint-disable no-unused-vars */
 import { Chart as ChartJS } from 'chart.js/auto'
-import NotFound from './NotFound'
+import Loader from './Loader'
 import './LineChart.css'
 
-const LineChart = ({ selectedId, passDates }) => {
-    const [ticker, setTicker] = useState({
-        "id": 0,
-        "name": "",
-        "funds": {
-            "total": {},
-            "avg" : {}
-        },
-        "price": 0,
-        "type": ""
-    })
-
-    useEffect(() => {
-        const fetchTicker = async (id) => {
-            const res = await fetch(`http://${process.env.REACT_APP_PORT}/tickers/${id}`)
-            const data = await res.json()
-            setTicker(data)
-            passDates(data.funds.total.dates)
-        }
-        
-        fetchTicker(selectedId)
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [selectedId])
-
+const LineChart = ({ ticker, id }) => {
     const openDetail = async (element) => {
         if (element.length > 0) {
             const date = ticker.funds.total.dates[element[0].index]
-            window.open(`/point/${selectedId}/${date}`, '_blank', 'noopener,noreferrer');
+            window.open(`/point/${id}/${date}`, '_blank', 'noopener,noreferrer')
         }
     }
 

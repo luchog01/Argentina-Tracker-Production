@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import './Funds.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowDown} from '@fortawesome/free-solid-svg-icons'
+import { faArrowDown } from '@fortawesome/free-solid-svg-icons'
 import DownloadButton from './DownloadButton'
 import * as XLSX from 'xlsx'
-import NotFound from './NotFound'
+import Loader from './Loader'
 
 const Funds = ({ ikey }) => {
     const { id } = useParams()
@@ -14,22 +14,25 @@ const Funds = ({ ikey }) => {
     const [fundsList, setFundsList] = useState([])
     const [descending, setDescending] = useState(true)
     const [sortedColumn, setSortedColumn] = useState(1)
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         const fetchFunds = async () => {
             const res = await fetch(`http://${process.env.REACT_APP_PORT}/point/${id}/${date}`)
             const data = await res.json()
             setFundsData(data)
-            
+
             const fundsListFromServer = data.funds.slice(2)
             fundsListFromServer.sort((first, second) => {
                 return second[1] - first[1];
             })
             setFundsList(fundsListFromServer)
-           
+            setLoading(false)
         }
+
         
         fetchFunds()
+        
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [id, date])
 
@@ -65,27 +68,28 @@ const Funds = ({ ikey }) => {
 
     return (
         <>
-            {Object.keys(fundsData).length > 0 ? 
-                <div className='funds-container'>
+            {loading ? <Loader />
+
+                : <div className='funds-container'>
                     <div className='initial-data'>
                         <h2 className='fund-title'>{fundsData.name}</h2>
                         <h2 className='fund-subtitle'>Fecha: {date}</h2>
                         <div>
                             <h2 className='fund-subtitle'>Precio: {fundsData.price}</h2>
-                            <DownloadButton exportFunds={exportFunds}/>
+                            <DownloadButton exportFunds={exportFunds} />
                         </div>
                     </div>
                     <div className='funds-grid'>
                         <h4 className='fund' onClick={() => sortByColumn(0)}>
                             Fondo
                             {sortedColumn === 0 &&
-                                <FontAwesomeIcon icon={faArrowDown} className={descending ? 'arrow' : 'arrow rotated'}/>
+                                <FontAwesomeIcon icon={faArrowDown} className={descending ? 'arrow' : 'arrow rotated'} />
                             }
                         </h4>
                         <h4 className='fund' onClick={() => sortByColumn(1)}>
                             Cantidad
                             {sortedColumn === 1 &&
-                                <FontAwesomeIcon icon={faArrowDown} className={descending ? 'arrow' : 'arrow rotated'}/>
+                                <FontAwesomeIcon icon={faArrowDown} className={descending ? 'arrow' : 'arrow rotated'} />
                             }
                         </h4>
                         <h4 className='fund'>Total</h4>
@@ -98,8 +102,7 @@ const Funds = ({ ikey }) => {
                             ))
                         ))}
                     </div>
-                </div> 
-        : <NotFound/> }
+                </div>}
         </>
     )
 }

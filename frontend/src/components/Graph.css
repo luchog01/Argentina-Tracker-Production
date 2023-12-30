@@ -1,0 +1,55 @@
+.container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+        min-height: 94vh;
+        position: relative;
+        top: 5vh;
+        color: black;
+        padding-top: 2rem;
+        padding-bottom: 3rem;
+}
+
+.linechart-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+}
+
+.dates-selector-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        margin-left: 1rem;
+}
+
+.compare-btn {
+        margin-top: 1rem;
+}
+
+.empty-date::before {
+        content: "Elige dos fechas.";
+        color: red;
+        font-size: 16px;
+        position: absolute;
+        display: inline-block;
+        bottom: 110%;
+        right: 15%;
+        width: 100%;
+}
+
+.equal-dates::before {
+        content: "Las fechas deben ser distintas.";
+        color: red;
+        font-size: 16px;
+        position: absolute;
+        display: inline-block;
+        bottom: 110%;
+        left: -12%;
+        width: 150%;
+}
