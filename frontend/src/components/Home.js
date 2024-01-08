@@ -26,7 +26,7 @@ const Home = () => {
                         <div className='tutorial-block'>
                                 <div className='tutorial-text-img'>
                                         <h2>Con este menu podrás buscar el ticker que desees</h2>
-                                        <img src={menuImg} alt="" />
+                                        <img className='grafico-img' src={menuImg} alt="" />
                                 </div>
                         </div>
                         <div className='tutorial-block tutorial-block-even'>
@@ -38,12 +38,12 @@ const Home = () => {
                         <div className='tutorial-block'>
                                 <div className='tutorial-text-img'>
                                         <h2>Tocando el total o el promedio podrás elegir cual quieres que se muestre</h2>
-                                        <img src={totalYPromedioImg} alt="" />
+                                        <img className='grafico-img' src={totalYPromedioImg} alt="" />
                                 </div>
                         </div>
                         <div className='tutorial-block tutorial-block-even'>
                                 <div className='tutorial-text-img'>
-                                        <img src={pointImg} alt="" />
+                                        <img className='grafico-img' src={pointImg} alt="" />
                                         <h2>Tocar cualquier punto te mandará a una página con los detalles del ticker en esa fecha</h2>
                                 </div>
                         </div>
@@ -55,14 +55,14 @@ const Home = () => {
                         </div>
                         <div className='tutorial-block tutorial-block-even'>
                                 <div className='tutorial-text-img'>
-                                        <img src={categoriasImg} alt="" />
+                                        <img className='grafico-img' src={categoriasImg} alt="" />
                                         <h2>Tocando cualquier categoría podrás ordenar los fondos de manera ascendente o descendente según esa categoría</h2>
                                 </div>
                         </div>
                         <div className='tutorial-block'>
                                 <div className='tutorial-text-img'>
                                         <h2>Con este botón podrás descargar un excel con los datos que necesites</h2>
-                                        <img src={descargarImg} alt="" />
+                                        <img className='grafico-img' src={descargarImg} alt="" />
                                 </div>
                         </div>
                 </div>

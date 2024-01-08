@@ -1,11 +1,10 @@
 import React from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import "./Header.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 
 const Header = ({ toggleMenu }) => {
-    const location = useLocation()
     const navigate = useNavigate()
 
     return (

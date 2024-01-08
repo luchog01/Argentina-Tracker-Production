@@ -1,0 +1,22 @@
+.sponsor-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        position: relative;
+        top: 4em;
+}
+
+.cocos-mobile {
+        display: none;
+}
+
+@media only screen and (max-width: 830px) {
+        .cocos {
+                display: none;
+         }
+
+        .cocos-mobile {
+               display: block;
+        }
+}

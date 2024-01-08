@@ -1,0 +1,47 @@
+.period-menu-container {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+}
+
+.period-menu-trigger {
+        width: 11rem;
+        padding: .8rem;
+        display: flex;
+        justify-content: space-between;
+        background-color: #ffffff;
+        color: #1c1c1c;
+        border: 1px solid #333333;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: .5rem;
+}
+
+.arrow {
+        color: #1c1c1c;
+}
+
+.period-menu {
+        position: relative;
+        padding-top: 0px;
+}
+
+.period-menu-content {
+        position: absolute;
+        max-height: 11.2rem;
+        overflow-x: hidden;
+        z-index: 1;
+}
+
+.period-menu-item {
+        width: 11rem;
+        padding: .8rem;
+        background-color: #ffffff;
+        border-top: 1px solid rgba(0, 0, 0, .1);
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+}
+
+.period-menu-item:hover {
+        background-color: #e2e2e2;
+}

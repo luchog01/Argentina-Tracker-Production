@@ -2,6 +2,7 @@ import { React, useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import DownloadButton from './DownloadButton';
 import LineChart from './LineChart';
+import PeriodMenu from './PeriodMenu';
 import DatesMenu from './DatesMenu';
 import Loader from './Loader'
 import './Graph.css'
@@ -18,6 +19,10 @@ const Graph = ({ changeTickerId }) => {
         "price": 0,
         "type": ""
     })
+    const [backendPeriod, setBackendPeriod] = useState('all')
+    const [period, setPeriod] = useState('Todo')
+    const [backendPeriodList] = useState(['month', 'three_months', 'six_months', 'year', 'all'])
+    const [periodList] = useState(['Mes', '3 Meses', '6 Meses', 'Año', 'Todo'])
     const [dateList, setDateList] = useState([])
     const [date1, setDate1] = useState('')
     const [date2, setDate2] = useState('')
@@ -27,7 +32,7 @@ const Graph = ({ changeTickerId }) => {
 
     useEffect(() => {
         const fetchTicker = async () => {
-            const res = await fetch(`http://${process.env.REACT_APP_PORT}/tickers/${id}`)
+            const res = await fetch(`http://${process.env.REACT_APP_PORT}/tickers/${id}?period=${backendPeriod}`)
             const data = await res.json()
 
             if (data.funds.total.dates.length % 2 === 0 && data.funds.total.dates.length > 34) {
@@ -48,10 +53,16 @@ const Graph = ({ changeTickerId }) => {
         setLoading(false)
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [id])
+    }, [id, backendPeriod])
 
     const exportFunds = () => {
         window.open(`http://${process.env.REACT_APP_PORT}/excel/${id}`, '_blank', 'noopener,noreferrer')
+    }
+
+    const setPeriod_ = (period) => {
+        setPeriod(period)
+        const periodIndex = periodList.indexOf(period)
+        setBackendPeriod(backendPeriodList[periodIndex])
     }
 
     const setDates = (date, dateId) => {
@@ -77,7 +88,10 @@ const Graph = ({ changeTickerId }) => {
                 : 
             <div className='container'>
                 <div className='linechart-container'>
-                    <DownloadButton exportFunds={exportFunds} />
+                    <div className='linechart-tools'>
+                        <PeriodMenu period={period} setPeriod={setPeriod_} periodList={periodList} />
+                        <DownloadButton exportFunds={exportFunds} />
+                    </div>
                     <LineChart ticker={ticker} id={id}/>
                 </div>
                 <div className='dates-selector-container'>
