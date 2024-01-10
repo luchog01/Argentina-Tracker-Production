@@ -1,15 +1,14 @@
 from fastapi import FastAPI, Depends, HTTPException, Request, status
+from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 import core.schemas.schemas as _schemas
 import core.services.services as _services
 import sqlalchemy.orm as _orm
 from typing import Dict
-import uvicorn
-from settings import ENGINE_PSWD, DATA_FORMAT, SESSION_TIME, IGNORE_TICKERS
+from settings import ENGINE_PSWD, DATA_FORMAT, SESSION_TIME, IGNORE_TICKERS, DATE_FORMAT
 from excel_handler import handler as ExcelHandler
 from fastapi.responses import FileResponse
 from datetime import datetime
-import sys
 import json
 from cachetools import TTLCache, cached
 import os
@@ -91,14 +90,26 @@ def all_tickers(
 
 @app.get("/tickers/{ticker_id}", tags=["Tickers"], response_model=_schemas.Ticker)
 def tickers(
-    ticker_id: int, db: _orm.Session = Depends(_services.get_db),
+    ticker_id: int,
+    period: _schemas.PeriodBase = _schemas.PeriodBase.YEAR,
+    db: _orm.Session = Depends(_services.get_db),
     _ = Depends(login)
 ):
+    period = _schemas.Period(period=period)  # Convert to Period object
     db_ticker = _services.get_ticker(db=db, id=ticker_id)
     if db_ticker is None:
         raise HTTPException(
             status_code=404, detail="This Ticker does not exist."
         )
+    from_date = datetime.now() - period.delta()
+    for fund in db_ticker.funds.keys():
+        for i in range(len(db_ticker.funds[fund]["dates"])):
+            fund_date = datetime.strptime(db_ticker.funds[fund]["dates"][i], DATE_FORMAT)
+            if fund_date >= from_date:
+                db_ticker.funds[fund]["dates"] = db_ticker.funds[fund]["dates"][i:]
+                db_ticker.funds[fund]["qty"] = db_ticker.funds[fund]["qty"][i:]
+                db_ticker.funds[fund]["prices"] = db_ticker.funds[fund]["prices"][i:]
+                break
     return db_ticker
 
 @app.get("/excel/{ticker_id}", tags=["Tickers"], response_class=FileResponse)
@@ -204,6 +215,16 @@ async def support_ticket(msg: str):
     with open("support.txt", "a") as f:
         now = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
         f.write(f"{now} - {msg}")
+
+@app.get("/users/{password}", tags=["Support"])
+async def users(password: str) -> JSONResponse:
+    if password != ENGINE_PSWD:
+        return JSONResponse(content={"error": "Wrong password"}, status_code=401)
+    
+    with open(users_file, "r") as f:
+        content = f.read()
+        # Assuming the content of the file is a JSON-formatted string, you can directly return it
+        return JSONResponse(content=content, status_code=200)
 
 @app.get("/support_ticket/{password}", tags=["Support"])
 async def support_ticket(password: str):
