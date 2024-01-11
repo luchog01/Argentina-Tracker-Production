@@ -1,4 +1,5 @@
 ENGINE_PSWD = "g21jhv3223b1h"
+DATE_FORMAT = "%d-%m-%Y"
 DATA_FORMAT = "%d-%m-%Y --- %H:%M:%S"
 SESSION_TIME = 60*60  # 1 hour
 IGNORE_TICKERS = [
