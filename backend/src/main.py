@@ -12,6 +12,7 @@ from datetime import datetime
 import json
 from cachetools import TTLCache, cached
 import os
+import uvicorn
 
 module_dir = os.path.dirname(__file__)  # get current directory
 users_file = os.path.join(module_dir, 'users.json')
