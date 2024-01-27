@@ -12,6 +12,13 @@
 
 @media only screen and (max-width: 1000px) {
         .line-chart {
-                min-width: 90vw;
+                min-width: 93vw;
+        }
+}
+
+@media only screen and (max-width: 400px) {
+        .line-chart {
+                min-width: 96vw;
+                max-height: 34rem;
         }
 }

@@ -54,6 +54,14 @@ const LineChart = ({ ticker, id }) => {
                                     font: {
                                         size: 14,
                                         weight: 'bolder'
+                                    },
+                                    callback: function(value, index, values) {
+                                        if (value >= 1e6) {
+                                            return value / 1e6 + 'M';
+                                        } else if (value >= 1e3) {
+                                            return value / 1e3 + 'k';
+                                        }
+                                        return value;
                                     }
                                 },
                                 grid: {

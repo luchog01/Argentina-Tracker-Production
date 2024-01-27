@@ -18,7 +18,7 @@ const Home = () => {
                 <div className='homepage-container'>
                         <div className='welcome-container'>
                                 <div className='welcome'>
-                                        <h1 className='welcome-text'>FCI Tracker es una pagina donde va a poder visualizar el portafolio de los Fondos Comunes de Inversion de Argentina a lo largo del tiempo.</h1>
+                                        <h1 className='welcome-text'>En FCI Tracker va a poder visualizar el portafolio de los Fondos Comunes de Inversion de Argentina a lo largo del tiempo.</h1>
                                         <h1 className='welcome-text'>Si usted piensa comprar o vender algun activo, de seguro le servira saber que estan haciendo los grandes fondos!</h1>
                                 </div>
                                 <button onClick={() => openGraph()}>Empezar</button>

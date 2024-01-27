@@ -45,3 +45,9 @@
 .period-menu-item:hover {
         background-color: #e2e2e2;
 }
+
+@media only screen and (max-width: 400px) {
+        .period-menu-trigger {
+                width: 7rem;
+        }
+}
