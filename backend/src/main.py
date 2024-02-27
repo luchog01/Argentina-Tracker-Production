@@ -271,6 +271,20 @@ async def update_engine(password: str,today: str, request: Request, db: _orm.Ses
         raise HTTPException(
                 status_code=500, detail=f"Internal Server Error {exc_type} {exc_tb.tb_lineno} {e}"
             )    
+
+@app.post("/delete/{password}/{name}", tags=["Engine"])
+async def delete_ticker(password: str, name: str, db: _orm.Session = Depends(_services.get_db)):
+    try:
+        if password == ENGINE_PSWD:
+            _services.delete_ticker_by_name(db, name)
+        else:
+            return "Incorrect Password"
+    except Exception as e:
+        exc_type, exc_obj, exc_tb = sys.exc_info()
+        print("[ERROR] engineUpdate: ",e)
+        raise HTTPException(
+                status_code=500, detail=f"Internal Server Error {exc_type} {exc_tb.tb_lineno} {e}"
+            )
 # -------------------------------------------------------------------
 # PLAYGROUND
 # -------------------------------------------------------------------

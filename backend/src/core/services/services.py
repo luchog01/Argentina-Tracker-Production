@@ -41,6 +41,9 @@ def update_ticker(db: _orm.Session, ticker: _schemas.createTicker):
     db.query(_models.Ticker).filter(_models.Ticker.name == ticker.name).update({'funds': ticker.funds, 'price': ticker.price, 'type': ticker.type})
     db.commit()
 
+def delete_ticker_by_name(db: _orm.Session, name: str):
+    db.query(_models.Ticker).filter(_models.Ticker.name == name).delete()
+    db.commit()
 
 # FIX Here we need to replace post to funds Database
 
